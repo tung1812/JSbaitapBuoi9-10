@@ -109,7 +109,7 @@ function deleteEmployee(employeeUser) {
   
     localStorage.setItem("employees", JSON.stringify(employees));
   
-    // Sau khi thay đổi dữ liệu của mảng array, ta cần gọi hàm display và truyền vào array students để cập nhật lại giao diện
+
     display(employees);
 }
 
@@ -125,13 +125,12 @@ function searchEmployee() {
       return type.includes(searchValue);
     });
   
-    // Gọi hàm display và truyền vào array mới để hiển thị lên giao diện
+
     display(newEmployees);
 }
 
 function selectEmployee(employeeUser) {
-    // find hoạt động tương tự findIndex, tuy nhiên thay vì trả về index nó trả về giá trị của phần tử
-    // nếu không tìm thấy trả về undefined
+
     let employee = employees.find((employee) => {
       return employee.user === employeeUser;
     });
@@ -140,7 +139,7 @@ function selectEmployee(employeeUser) {
       return;
     }
     
-    // Dùng object employee để fill thông tin lên các input
+
     dom("#tknv").value = employee.user;
     dom("#name").value = employee.name;
     dom("#email").value = employee.email;
@@ -151,7 +150,7 @@ function selectEmployee(employeeUser) {
     dom("#gioLam").value = employee.monthlyWorkingHour;
     
   
-    // khi cập nhật không được thêm nhân viên
+
     
     dom("#btnThemNV").disabled = true;
 }
@@ -168,7 +167,7 @@ function updateEmployee() {
     let monthlyWorkingHour = +dom("#gioLam").value;
 
     let isValid = validateForm();
-    // Kiểm tra nếu form không hợp lệ => kết thúc hàm
+
     if (!isValid) {
         return;
     }
